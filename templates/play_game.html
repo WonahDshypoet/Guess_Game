@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+
+<html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+    form {
+        text-align: center;
+        align-items: center;
+        font-style: italic;
+        }
+
+    h1 {
+        text-align: center;
+        padding: 20px;
+        margin: 0 auto;
+        }
+
+    body {
+        background-color: #00f0ff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        }
+
+    #guess-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+    #guess {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #dfe1e5;
+        border-radius: 24px;
+        font-size: 16px;
+        outline: none;
+        }
+
+    #guess:focus {
+        border-color: #4285f4;
+        }
+
+    #guess-button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 24px;
+        background-color: #4285f4;
+        color: #ffffff;
+        cursor: pointer;
+        }
+</style>
+<head>
+    <title>Guessing Game</title>
+</head>
+<body>
+    <h1>Guessing Game</h1>
+    <form id="guess-form" method="post">
+        {% csrf_token %}
+        <input type="number" id="guess" name="guess" placeholder="Enter your guess" min="1" max="100">
+        <input type="submit" id="guess-button" value="Submit">
+        <label for="guess">{{ message }}</label>
+    </form>
+</body>
+
+</html>
